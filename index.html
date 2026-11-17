@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" href="icon-192.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CatTrack</title>
+</head>
+<body>
+    <h1>CatTrack</h1>
+    <script>
+        console.log('test');
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registration) {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            }
+    </script>
+        <form id="catForm">
+            <!-- jméno -->
+    <label for="catName">Jméno kočky:</label>
+    <input type="text" id="catName" name="catName" required>
+
+            <!-- pohlaví -->
+    <label for="catGender">Pohlaví:</label>
+    <select id="catGender" name="catGender">
+        <option value="kocour">kocour</option>
+        <option value="kocka">kočka</option>
+        <option value="nevim">nevím</option>
+    </select>
+
+            <!-- kastrace -->
+    <label for="catNeutered">Kastrace:</label>
+    <select id="catNeutered" name="catNeutered">
+        <option value="ano">ano</option>
+        <option value="ne">ne</option>
+        <option value="nevim">nevím</option>
+    </select>
+
+             <!-- fotka -->
+    <label for="catPhoto">Fotka:</label>
+    <input type="file" id="catPhoto" name="catPhoto" accept="image/*">
+
+    <button type="submit">Přidat kočku</button>
+</form>
+</body>
+</html>
